@@ -1,0 +1,16 @@
+{% load static %}
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/css/glyphicons.css' %}">
+</head>
+
+{% for post in posts %}
+
+<ul>
+	<li>
+		<a href="{% url 'post' post.slug %}">
+		{{ post.title }} | Views: {{ post.views }}</span>
+		</a>
+	</li>
+</ul>
+
+{% endfor %}

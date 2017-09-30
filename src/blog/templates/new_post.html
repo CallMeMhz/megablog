@@ -1,0 +1,11 @@
+<h1>New Post</h1>
+
+{{ errors }}
+
+<form method="POST"> {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
+
+<!--     <input type="text" name="title" placeholder="Post Title"><br>
+    <textarea name="content" placeholder="Markdown Text" rows="30" cols="100"></textarea><br> -->

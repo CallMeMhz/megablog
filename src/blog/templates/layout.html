@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %} Mega Blog {% endblock title %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/css/glyphicons.css' %}">
+    <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="topbar">
+    <div class="subtitle">{{ subtitle }}</div>
+    <div class="button">
+        <a href="{% url 'index' %}"><i class="icon-home"></i></a>
+    </div>
+    <div class="title">
+        <i class="icon-sort"></i>
+        {{ banner }}
+    </div>
+</div>
+
+<div class="container fill">
+    <div class="notes-index fill">
+        {{ category|safe }}
+    </div>
+
+    <div class="note-container fill">
+        {% include 'post.html' with post=post %}
+
+    </div>
+</div>
+
+</body>
+</html>
